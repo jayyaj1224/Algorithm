@@ -13,6 +13,7 @@
  *     }
  * }
  */
+ ```swift
 class Solution {
     var ans = [[Int]]()
     var dic = [Int:[Int]]()
@@ -50,3 +51,4 @@ class Solution {
         }
     }
 }
+```
