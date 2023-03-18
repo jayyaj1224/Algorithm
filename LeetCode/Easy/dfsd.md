@@ -1,0 +1,32 @@
+
+<img width="834" alt="Screenshot 2023-03-18 at 10 46 14" src="https://user-images.githubusercontent.com/73763976/226100765-fd5ca8a3-3e01-4ca1-8f37-3dedcdcb853d.png">
+
+<img width="843" alt="Screenshot 2023-03-18 at 10 46 00" src="https://user-images.githubusercontent.com/73763976/226100756-e66cfe9c-d2e5-49fa-964f-063680795a4b.png">
+
+```swift
+class Solution {
+    func makeGood(_ s: String) -> String {
+        var isBad = true
+        var t = Array(s)
+        var count = s.count
+
+        while isBad, count >= 2 {
+            var k = -1
+            for i in 1..<count {
+                if (Int(t[i-1].asciiValue!) - Int(t[i].asciiValue!)).magnitude == 32 {
+                    k = i
+                    break
+                }
+                if i == count-1 {
+                    isBad = false
+                }
+            }
+            if k > 0 {
+                t.removeSubrange(k-1...k)
+                count-=2
+            }
+        }
+        return String(t)
+    }
+}
+```
